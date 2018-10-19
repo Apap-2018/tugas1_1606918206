@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+
+<head>
+	<title> Home </title>
+	
+	<object th:include="fragments/fragment :: header" th:remove="tag"></object>
+	<style>
+		#tambahJabatan {
+						padding-left:300px;
+						color:blue;
+						}
+
+	</style>
+</head>
+
+<body>
+	<nav th:replace="fragments/fragment :: navbar"> </nav>
+	<br>
+	<div class="container-fluid">
+		<h2> Tambah Pegawai </h2>
+		<hr>
+		<div class="row">
+		    <div class="col">
+		    	
+		    	
+		    	<form  th:action="@{/pegawai/tambah}" id="pegawaiForm" th:object="${pegawai}"  method="POST">
+					<div class="form-group row">
+				    	<label for="inputEmail3" class="col-sm-4 col-form-label">Nama</label>
+				    	<div class="col-sm-7">
+				      	<input  class="form-control" input type="text" required="required" name="nama" placeholder="nama">
+				    	</div>
+				  	</div>
+				  	<div class="form-group row">
+				    	<label for="inputEmail3" class="col-sm-4 col-form-label">Tempat Lahir</label>
+				    	<div class="col-sm-7">
+				      	<input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+				    	</div>
+				  	</div>
+				  	<div class="form-group row">
+				    	<label for="inputEmail3" class="col-sm-4 col-form-label">Tanggal Lahir</label>
+				    	<div class="col-sm-7">
+				      	<input type="date" name="bday" max="3000-12-31" 
+						        min="1000-01-01" class="form-control">
+				    	</div>
+				  	</div>
+				  	<div class="form-group row">
+				    	<label for="inputEmail3" class="col-sm-4 col-form-label">Tahun Masuk</label>
+				    	<div class="col-sm-7">
+				      	<input type="number" name="tahun"  
+						        class="form-control">
+				    	</div>
+				  	</div>
+				  	<div class="form-group row">
+				    	<label for="inputEmail3" class="col-sm-4 col-form-label">Provinsi</label>
+				    	<div class="col-sm-7">
+					     	 <select class="form-control" th:name="provinsi" id="provinsi">
+								<option disabled="disabled" selected="selected" >Pilih Provinsi</option>
+					    		<option th:each="provinsi : ${listProvinsi}" th:value="${provinsi.id}" th:text="${provinsi.nama}"></option>
+							</select>
+				    	</div>
+				  	</div>
+				  	
+				  	<!-- FORM INSTANSI -->
+				  	
+				  	<div class="form-group row">
+				    	<label for="inputEmail3" class="col-sm-4 col-form-label">Nama Instansi</label>
+				    	<div class="col-sm-7">
+					     	<select class="form-control" th:name="id_instansi" id="instansi">
+								<option disabled="disabled" selected="selected" >Pilih Instansi</option>
+					    		<option th:each="instansi : ${listInstansi}" th:value="${instansi.id}" th:text="${instansi.nama}"></option>
+							</select>
+				    	</div>
+				  	</div>
+				  	
+				  	<!-- FORM JABATAN -->
+				  	
+				  	<div class="form-group row">
+				    	<label for="inputEmail3" class="col-sm-4 col-form-label">Jabatan</label>
+				    	<div class="col-sm-7">
+					      	<select class="form-control" id="exampleFormControlSelect1">
+						      <option>1</option>
+						      <option>2</option>
+						      <option>3</option>
+						      <option>4</option>
+						      <option>5</option>
+						    </select>
+				    	</div>
+				    	
+				    	<small id="tambahJabatan" class="form-text " >
+ 							Tambah Jabatan Lainnya
+						</small>
+				    		
+				  	</div>
+				  	
+									 
+				  	
+				  	
+				  	
+				 </form>
+		    </div>
+		    <!-- space kanannya -->
+		    <div class="col">
+		    </div>
+		   
+		</div>
+		
+		
+		
+		
+	</div>
+</body>
+
+
+
+</html>
