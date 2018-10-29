@@ -4,7 +4,9 @@
 		<title th:text="${title}"></title>
 		<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
 		<link rel="stylesheet" th:href="@{/DataTables/datatables.min.css}">
-		<script th:src="@{/js/bootstrap.min.js}"></script>		
+		<script th:src="@{/js/bootstrap.min.js}"></script>	
+		<link type = "text/css" rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+		<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 	</head>
 	
 	<body>
@@ -22,10 +24,13 @@
 						<a class="nav-link" th:href="@{/jabatan/tambah}">Tambah Jabatan</a>
 					</li>
 					<li class="nav-item active">
-						<a class="nav-link" th:href="@{/}">Cari Pegawai</a>
+						<a class="nav-link" th:href="@{/pegawai/cari}">Cari Pegawai</a>
 					</li>
 					<li class="nav-item active">
 						<a class="nav-link" th:href="@{/jabatan/viewAllJabatan}">Lihat Semua Jabatan</a>
+					</li>
+					<li class="nav-item active">
+						<a class="nav-link" th:href="@{/jabatan/}">Jumlah Pegawai per Jabatan</a>
 					</li>
 				</ul>
 			</div>

@@ -25,36 +25,38 @@
 		    	
 		    	
 		    	<form  th:action="@{/pegawai/tambah}" id="pegawaiForm" th:object="${pegawai}"  method="POST">
+					
 					<div class="form-group row">
 				    	<label for="inputEmail3" class="col-sm-4 col-form-label">Nama</label>
 				    	<div class="col-sm-7">
-				      	<input  class="form-control" input type="text" required="required" name="nama" placeholder="nama">
+				      	<input  class="form-control" type="text" required="required" name="nama" placeholder="nama" th:value="*{nama}">
 				    	</div>
 				  	</div>
+				  	
 				  	<div class="form-group row">
 				    	<label for="inputEmail3" class="col-sm-4 col-form-label">Tempat Lahir</label>
 				    	<div class="col-sm-7">
-				      	<input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+				      		<input  class="form-control" type="text" required="required" name="tempatLahir" placeholder="tempatLahir" th:value="*{tempatLahir}">
 				    	</div>
 				  	</div>
+				  	
 				  	<div class="form-group row">
 				    	<label for="inputEmail3" class="col-sm-4 col-form-label">Tanggal Lahir</label>
 				    	<div class="col-sm-7">
-				      	<input type="date" name="bday" max="3000-12-31" 
-						        min="1000-01-01" class="form-control">
+				      		<input type="date" name="tanggalLahir" max="3000-12-31" min="1000-01-01" class="form-control" th:value="*{tanggalLahir}">
 				    	</div>
+				  	
 				  	</div>
 				  	<div class="form-group row">
 				    	<label for="inputEmail3" class="col-sm-4 col-form-label">Tahun Masuk</label>
 				    	<div class="col-sm-7">
-				      	<input type="number" name="tahun"  
-						        class="form-control">
+				      		<input type="number" name="tahunMasuk" class="form-control" th:value="*{tahunMasuk}">
 				    	</div>
 				  	</div>
 				  	<div class="form-group row">
 				    	<label for="inputEmail3" class="col-sm-4 col-form-label">Provinsi</label>
 				    	<div class="col-sm-7">
-					     	 <select class="form-control" th:name="provinsi" id="provinsi">
+					     	 <select class="form-control" th:name="provinsi" id="provinsi" th:value="${listProvinsi}">
 								<option disabled="disabled" selected="selected" >Pilih Provinsi</option>
 					    		<option th:each="provinsi : ${listProvinsi}" th:value="${provinsi.id}" th:text="${provinsi.nama}"></option>
 							</select>
@@ -66,9 +68,8 @@
 				  	<div class="form-group row">
 				    	<label for="inputEmail3" class="col-sm-4 col-form-label">Nama Instansi</label>
 				    	<div class="col-sm-7">
-					     	<select class="form-control" th:name="id_instansi" id="instansi">
-								<option disabled="disabled" selected="selected" >Pilih Instansi</option>
-					    		<option th:each="instansi : ${listInstansi}" th:value="${instansi.id}" th:text="${instansi.nama}"></option>
+					     	<select class="form-control" name="instansi" th:value="*{instansi}" id="instansi">
+						    	<option th:each="instansi: ${listInstansi}" th:value="${instansi.id}" th:text="${instansi.nama}"/>
 							</select>
 				    	</div>
 				  	</div>
@@ -78,12 +79,8 @@
 				  	<div class="form-group row">
 				    	<label for="inputEmail3" class="col-sm-4 col-form-label">Jabatan</label>
 				    	<div class="col-sm-7">
-					      	<select class="form-control" id="exampleFormControlSelect1">
-						      <option>1</option>
-						      <option>2</option>
-						      <option>3</option>
-						      <option>4</option>
-						      <option>5</option>
+					      	<select class="form-control" id="jabatan" th:name="jabatan" th:value="*{jabatan}">
+						      <option th:each="jabatan : ${listJabatan}" th:value="${jabatan.id}" th:text="${jabatan.nama}"></option>
 						    </select>
 				    	</div>
 				    	
@@ -94,7 +91,7 @@
 				  	</div>
 				  	
 									 
-				  	
+				  	<button type="submit" name="save" class="btn btn-dark">Submit</button>
 				  	
 				  	
 				 </form>

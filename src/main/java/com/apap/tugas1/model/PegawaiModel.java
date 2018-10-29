@@ -139,4 +139,6 @@ public class PegawaiModel implements Serializable {
 		
 		return gatot;
 	}
+	
+	
 }

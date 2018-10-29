@@ -8,10 +8,11 @@
 		
 	<body>	
 		<nav th:replace="fragments/fragment :: navbar"></nav>
-		<h3>List Semua Jabatan</h3>
-		<br>
 		
-		<table id="searchResult">
+		<br>
+		<div class="container">
+		<h3>List Semua Jabatan</h3>
+		<table id="myData" class="table table-stripped table-bordered table-hover">
 			<thead>
 				<th>Nama</th>
 				<th>Deskripsi</th>
@@ -25,16 +26,11 @@
 				</tr>
 			</span>
 		</table>
-			
+		</div>
 	</body>
 	
-	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
-  
-	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
 	
 	<script>
-		$(document).ready( function () {
-		    $('#searchResult').DataTable();
-		} );
+	$('myData').dataTable();
 	</script>
 </html>

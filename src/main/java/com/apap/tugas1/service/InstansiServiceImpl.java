@@ -37,4 +37,6 @@ public class InstansiServiceImpl implements InstansiService {
 	public List<InstansiModel> viewByNama(String nama) {
 		return instansiDb.findByNama(nama);
 }
+
+	
 }

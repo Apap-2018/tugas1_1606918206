@@ -15,5 +15,7 @@ public interface InstansiService {
 	List<InstansiModel> viewByNama(String namaInstansi);
 	List<InstansiModel> viewByProvinsi(ProvinsiModel provinsi);
 	
+	
+	
 
 }
